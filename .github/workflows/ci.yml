@@ -20,12 +20,12 @@ jobs:
           uses: actions/setup-node@v4
           with:
             node-version: '22.x'
-            cache: 'yarn'
+            cache: 'npm'
 
       -   name: Frontend build
           run: |
-            yarn install --frozen-lockfile
-            yarn run build
+            npm install --frozen-lockfile
+            npm run build
 
       - name: Upload new frontend
         uses: appleboy/scp-action@v0.1.4

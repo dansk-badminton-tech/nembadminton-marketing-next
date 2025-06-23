@@ -1,99 +1,71 @@
-<header>
-	<nav class="container">
-		<div class="logo">Nembadminton</div>
-		<ul class="nav-links">
-			<li><a href="#home">Hjem</a></li>
-			<li><a href="#features">Features</a></li>
-			<li><a href="#team">Om os</a></li>
-			<li><a href="#faq">FAQ</a></li>
-		</ul>
-		<div class="nav-buttons">
-			<a href="#" class="btn-login">Login</a>
-			<a href="#" class="btn-primary">Kom igang</a>
+---
+// Use the logo from public directory
+---
+
+<header class="bg-white fixed w-full top-0 z-50 shadow-sm">
+	<nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+		<div class="flex lg:flex-1">
+			<a href="#home" class="-m-1.5 p-1.5">
+				<span class="sr-only">NemBadminton</span>
+				<img class="h-8 w-auto" src="/logo.svg" alt="NemBadminton">
+			</a>
+		</div>
+		<div class="flex lg:hidden">
+			<button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" onclick="toggleMobileMenu()">
+				<span class="sr-only">Open main menu</span>
+				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+				</svg>
+			</button>
+		</div>
+		<div class="hidden lg:flex lg:gap-x-12">
+			      <a href="#home" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">Hjem</a>
+      <a href="#features" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">Features</a>
+      <a href="#team" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">Om os</a>
+      <a href="#faq" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">FAQ</a>
+		</div>
+		<div class="hidden lg:flex lg:flex-1 lg:justify-end">
+			      <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">Login <span aria-hidden="true">&rarr;</span></a>
 		</div>
 	</nav>
+	<!-- Mobile menu, show/hide based on menu open state. -->
+	<div class="lg:hidden hidden" id="mobile-menu">
+		<div class="fixed inset-0 z-50"></div>
+		<div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+			<div class="flex items-center justify-between">
+				<a href="#home" class="-m-1.5 p-1.5">
+					<span class="sr-only">NemBadminton</span>
+					<img class="h-8 w-auto" src="/logo.svg" alt="NemBadminton">
+				</a>
+				<button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" onclick="toggleMobileMenu()">
+					<span class="sr-only">Close menu</span>
+					<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+			<div class="mt-6 flow-root">
+				<div class="-my-6 divide-y divide-gray-500/10">
+					<div class="space-y-2 py-6">
+						<a href="#home" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onclick="toggleMobileMenu()">Hjem</a>
+						<a href="#features" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onclick="toggleMobileMenu()">Features</a>
+						<a href="#team" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onclick="toggleMobileMenu()">Om os</a>
+						<a href="#faq" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onclick="toggleMobileMenu()">FAQ</a>
+					</div>
+					<div class="py-6">
+						<a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Login</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </header>
 
-<style>
-	header {
-		background: #fff;
-		box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-		position: fixed;
-		width: 100%;
-		top: 0;
-		z-index: 1000;
-	}
-	
-	nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1rem 0;
-	}
-	
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 20px;
-	}
-	
-	.logo {
-		font-size: 1.5rem;
-		font-weight: bold;
-		color: #e74c3c;
-	}
-	
-	.nav-links {
-		display: flex;
-		list-style: none;
-		gap: 2rem;
-	}
-	
-	.nav-links a {
-		text-decoration: none;
-		color: #333;
-		font-weight: 500;
-		transition: color 0.3s;
-	}
-	
-	.nav-links a:hover {
-		color: #e74c3c;
-	}
-	
-	.nav-buttons {
-		display: flex;
-		gap: 1rem;
-	}
-	
-	.btn-login {
-		text-decoration: none;
-		color: #333;
-		padding: 8px 16px;
-		border: 1px solid #ddd;
-		border-radius: 5px;
-		transition: all 0.3s;
-	}
-	
-	.btn-login:hover {
-		background: #f8f9fa;
-	}
-	
-	.btn-primary {
-		background: #e74c3c;
-		color: white;
-		text-decoration: none;
-		padding: 8px 16px;
-		border-radius: 5px;
-		transition: background 0.3s;
-	}
-	
-	.btn-primary:hover {
-		background: #c0392b;
-	}
-	
-	@media (max-width: 768px) {
-		.nav-links {
-			display: none;
+<script>
+	function toggleMobileMenu() {
+		const menu = document.getElementById('mobile-menu');
+		if (menu) {
+			menu.classList.toggle('hidden');
 		}
 	}
-</style> 
+</script> 

@@ -1,92 +1,49 @@
 ---
+import { Image } from 'astro:assets';
 import heroImage from '../assets/teamfight-planning-landing-2.png';
 
 const tagline = "Badminton holdturnering bare nemt. Planlæg, Sammensæt, Spil!";
 const subtitle = "Optimer jeres holdturneringer med vores digitale løsninger. Gør planlægning, koordinering og gennemførelse til en leg, og lad teknologien løfte jeres klub til nye højder.";
 ---
 
-<section class="hero" id="home" style={`background: linear-gradient(135deg, rgba(231, 76, 60, 0.8) 0%, rgba(192, 57, 43, 0.8) 100%), url(${heroImage.src}); background-size: cover; background-position: center; background-attachment: fixed;`}>
-	<div class="container">
-		<h1>{tagline}</h1>
-		<p>{subtitle}</p>
-		<div class="hero-buttons">
-			<a href="#" class="cta-button">Kom igang</a>
-			<a href="#" class="cta-button cta-secondary">Gå til login→</a>
+<div class="bg-white" id="home">
+	<div class="relative isolate px-6 pt-14 lg:px-8">
+		    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+      <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-blue-500 to-indigo-600 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
+    </div>
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+				<div class="max-w-xl lg:max-w-lg">
+					<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+						{tagline}
+					</h1>
+					<p class="mt-6 text-lg leading-8 text-gray-600">
+						{subtitle}
+					</p>
+					          <div class="mt-10 flex items-center gap-x-6">
+            <a href="#" class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors">
+              Kom igang
+            </a>
+            <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
+              Gå til login <span aria-hidden="true">→</span>
+            </a>
+          </div>
+				</div>
+				<div class="relative lg:max-w-none">
+					<Image 
+						src={heroImage} 
+						alt="NemBadminton team planning interface"
+						class="aspect-[6/5] w-full rounded-2xl bg-gray-50 object-cover lg:aspect-auto lg:h-[34.5rem]"
+						width={600}
+						height={550}
+					/>
+				</div>
+			</div>
 		</div>
+		    <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+      <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-blue-500 to-indigo-600 opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"></div>
+    </div>
 	</div>
-</section>
+</div>
 
-<style>
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 20px;
-	}
-	
-	.hero {
-		color: white;
-		padding: 120px 0 80px;
-		text-align: center;
-	}
-	
-	.hero h1 {
-		font-size: 3rem;
-		margin-bottom: 1rem;
-		font-weight: 700;
-	}
-	
-	.hero p {
-		font-size: 1.2rem;
-		margin-bottom: 2rem;
-		opacity: 0.9;
-		max-width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	
-	.hero-buttons {
-		display: flex;
-		gap: 1rem;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
-	
-	.cta-button {
-		display: inline-block;
-		background: #fff;
-		color: #e74c3c;
-		padding: 15px 30px;
-		text-decoration: none;
-		border-radius: 5px;
-		font-weight: 600;
-		font-size: 1.1rem;
-		transition: transform 0.3s, box-shadow 0.3s;
-	}
-	
-	.cta-button:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-	}
-	
-	.cta-secondary {
-		background: transparent;
-		color: white;
-		border: 2px solid white;
-	}
-	
-	.cta-secondary:hover {
-		background: white;
-		color: #e74c3c;
-	}
-	
-	@media (max-width: 768px) {
-		.hero h1 {
-			font-size: 2rem;
-		}
-		
-		.hero-buttons {
-			flex-direction: column;
-			align-items: center;
-		}
-	}
-</style> 
+ 

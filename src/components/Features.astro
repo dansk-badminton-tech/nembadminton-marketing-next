@@ -1,101 +1,99 @@
-<section class="features" id="features">
-	<div class="container">
-		<h2>Features</h2>
-		<p class="features-subtitle">Alle værktøjer du skal bruge</p>
-		<div class="features-grid">
-			<div class="feature-card">
-				<h3><span class="feature-icon">✓</span>Automatisk regeltjekker</h3>
-				<p>Sikre du overholder reglerne for DH-turneringen</p>
-			</div>
-			<div class="feature-card">
-				<h3><span class="feature-icon">📊</span>Data fra badmintonplayer</h3>
-				<p>Hver nat importeres nyeste data fra badmintonplayer</p>
-			</div>
-			<div class="feature-card">
-				<h3><span class="feature-icon">🚫</span>Meld afbud eller skade</h3>
-				<p>Markere afbud eller sæt en spiller som skadet</p>
-			</div>
-			<div class="feature-card">
-				<h3><span class="feature-icon">📤</span>Del din holdkamp</h3>
-				<p>Del din holdkamp med link eller download opstillingen</p>
-			</div>
-			<div class="feature-card">
-				<h3><span class="feature-icon">🏢</span>Hold på tværs af klubber</h3>
-				<p>Består dit holdturninens hold af flere klubber, kan du nemt tilføje ekstra klubber</p>
-			</div>
-			<div class="feature-card">
-				<h3><span class="feature-icon">📋</span>Multi ranglister for holdrunden</h3>
-				<p>Vælge forskellige ranglister per hold i holdrunden</p>
-			</div>
-			<div class="feature-card">
-				<h3><span class="feature-icon">⚙️</span>Variable hold</h3>
-				<p>Opret variable hold. Det giver mulighed for at oprette brugerdefinerede hold, hvor du selv vælger antallet af mixer, singler og doubler på hold</p>
-			</div>
-		</div>
-	</div>
-</section>
+---
+// Features section with Tailwind
+---
 
-<style>
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 20px;
-	}
-	
-	.features {
-		padding: 80px 0;
-		background: #f8f9fa;
-	}
-	
-	.features h2 {
-		text-align: center;
-		font-size: 2.5rem;
-		margin-bottom: 1rem;
-		color: #2c3e50;
-	}
-	
-	.features-subtitle {
-		text-align: center;
-		color: #7f8c8d;
-		margin-bottom: 3rem;
-	}
-	
-	.features-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-	}
-	
-	.feature-card {
-		background: white;
-		padding: 2rem;
-		border-radius: 10px;
-		box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-		transition: transform 0.3s;
-	}
-	
-	.feature-card:hover {
-		transform: translateY(-5px);
-	}
-	
-	.feature-card h3 {
-		font-size: 1.3rem;
-		margin-bottom: 1rem;
-		color: #e74c3c;
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-	
-	.feature-card p {
-		color: #555;
-	}
-	
-	.feature-icon {
-		background: #e74c3c;
-		color: white;
-		padding: 8px;
-		border-radius: 50%;
-		font-size: 1rem;
-	}
-</style> 
+<div class="bg-white py-24 sm:py-32" id="features">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <h2 class="text-base font-semibold leading-7 text-blue-600">Features</h2>
+      <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Alle værktøjer du skal bruge
+      </p>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        NemBadminton giver dig alle de funktioner, du har brug for til at administrere dine holdturneringer effektivt.
+      </p>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+      <div class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+        <div class="flex flex-col">
+          <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold leading-7 text-gray-900">Automatisk regeltjekker</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">Sikre du overholder reglerne for DH-turneringen</p>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold leading-7 text-gray-900">Data fra badmintonplayer</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">Hver nat importeres nyeste data fra badmintonplayer</p>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364l12.728-12.728" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold leading-7 text-gray-900">Meld afbud eller skade</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">Markere afbud eller sæt en spiller som skadet</p>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold leading-7 text-gray-900">Del din holdkamp</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">Del din holdkamp med link eller download opstillingen</p>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m2.25-18v18m13.5-18v18m2.25-18v18M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.75m-3.75 3.75h.75m-3.75 3.75h.75m-3.75 3.75H21m-3.75-12h.75m0 0V3h2.25" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold leading-7 text-gray-900">Hold på tværs af klubber</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">Består dit holdturninens hold af flere klubber, kan du nemt tilføje ekstra klubber</p>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 17.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold leading-7 text-gray-900">Multi ranglister for holdrunden</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">Vælge forskellige ranglister per hold i holdrunden</p>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold leading-7 text-gray-900">Variable hold</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">Opret variable hold. Det giver mulighed for at oprette brugerdefinerede hold, hvor du selv vælger antallet af mixer, singler og doubler på hold</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

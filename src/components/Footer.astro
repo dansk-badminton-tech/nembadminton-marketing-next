@@ -1,20 +1,35 @@
-<footer>
-	<div class="container">
-		<p>&copy; 2024 Nembadminton.dk</p>
+---
+// Footer with Tailwind
+---
+
+<footer class="bg-gray-900">
+	<div class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+		<div class="flex justify-center space-x-6 md:order-2">
+			<!-- Add social media links here if needed -->
+		</div>
+		<div class="mt-8 md:order-1 md:mt-0">
+			<div class="flex flex-col items-center md:flex-row md:justify-between">
+				<div class="text-center md:text-left">
+					<p class="text-base leading-6 text-gray-400">
+						&copy; 2024 NemBadminton. Alle rettigheder forbeholdes.
+					</p>
+					<p class="mt-2 text-sm leading-5 text-gray-500">
+						Gør badminton holdturnering nemt og tilgængeligt for alle.
+					</p>
+				</div>
+				<div class="mt-4 flex space-x-6 md:mt-0">
+					<a href="#" class="text-gray-400 hover:text-gray-300 transition-colors">
+						<span class="sr-only">Privatlivspolitik</span>
+						<span class="text-sm">Privatlivspolitik</span>
+					</a>
+					<a href="#" class="text-gray-400 hover:text-gray-300 transition-colors">
+						<span class="sr-only">Kontakt</span>
+						<span class="text-sm">Kontakt</span>
+					</a>
+				</div>
+			</div>
+		</div>
 	</div>
 </footer>
 
-<style>
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 20px;
-	}
-	
-	footer {
-		background: #2c3e50;
-		color: white;
-		text-align: center;
-		padding: 2rem 0;
-	}
-</style> 
+ 

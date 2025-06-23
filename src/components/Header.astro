@@ -5,9 +5,10 @@
 <header class="bg-white fixed w-full top-0 z-50 shadow-sm">
 	<nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
 		<div class="flex lg:flex-1">
-			<a href="#home" class="-m-1.5 p-1.5">
+			<a href="#home" class="-m-1.5 p-1.5 flex items-center">
 				<span class="sr-only">NemBadminton</span>
 				<img class="h-8 w-auto" src="/logo.svg" alt="NemBadminton">
+				<span class="ml-3 text-xl font-bold text-gray-900">Nembadminton</span>
 			</a>
 		</div>
 		<div class="flex lg:hidden">
@@ -24,8 +25,13 @@
       <a href="#team" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">Om os</a>
       <a href="#faq" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">FAQ</a>
 		</div>
-		<div class="hidden lg:flex lg:flex-1 lg:justify-end">
-			      <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">Login <span aria-hidden="true">&rarr;</span></a>
+		<div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+			<a href="https://app.nembadminton.dk/app/sign-up" target="_blank" rel="noopener noreferrer" class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors">
+				Kom igang
+			</a>
+			<a href="https://app.nembadminton.dk/app/home-redirect" target="_blank" rel="noopener noreferrer" class="rounded-md border border-gray-300 bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 transition-colors">
+				Login
+			</a>
 		</div>
 	</nav>
 	<!-- Mobile menu, show/hide based on menu open state. -->
@@ -33,9 +39,10 @@
 		<div class="fixed inset-0 z-50"></div>
 		<div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
 			<div class="flex items-center justify-between">
-				<a href="#home" class="-m-1.5 p-1.5">
+				<a href="#home" class="-m-1.5 p-1.5 flex items-center">
 					<span class="sr-only">NemBadminton</span>
 					<img class="h-8 w-auto" src="/logo.svg" alt="NemBadminton">
+					<span class="ml-3 text-xl font-bold text-gray-900">Nembadminton</span>
 				</a>
 				<button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" onclick="toggleMobileMenu()">
 					<span class="sr-only">Close menu</span>
@@ -52,8 +59,13 @@
 						<a href="#team" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onclick="toggleMobileMenu()">Om os</a>
 						<a href="#faq" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onclick="toggleMobileMenu()">FAQ</a>
 					</div>
-					<div class="py-6">
-						<a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Login</a>
+					<div class="py-6 space-y-2">
+						<a href="https://app.nembadminton.dk/app/sign-up" target="_blank" rel="noopener noreferrer" class="-mx-3 block rounded-lg bg-blue-600 px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-blue-500 transition-colors text-center">
+							Kom igang
+						</a>
+						<a href="https://app.nembadminton.dk/app/home-redirect" target="_blank" rel="noopener noreferrer" class="-mx-3 block rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 transition-colors text-center">
+							Login
+						</a>
 					</div>
 				</div>
 			</div>
@@ -61,7 +73,7 @@
 	</div>
 </header>
 
-<script>
+<script is:inline>
 	function toggleMobileMenu() {
 		const menu = document.getElementById('mobile-menu');
 		if (menu) {

@@ -1,0 +1,49 @@
+name: Deploy marketing site to simply.com
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-to-simply:
+    # env:
+    #   PUBLIC_DOMAIN: ${{ vars.PUBLIC_DOMAIN }}
+    #   PUBLIC_API_DOMAIN: ${{ vars.PUBLIC_API_DOMAIN }}
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      -   name: Checkout repository
+          uses: actions/checkout@v4
+
+      -   name: Setup NodeJS
+          uses: actions/setup-node@v4
+          with:
+            node-version: '22.x'
+            cache: 'yarn'
+
+      -   name: Frontend build
+          run: |
+            yarn install --frozen-lockfile
+            yarn run build
+
+      - name: Upload new frontend
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ vars.SIMPLY_SSH_HOST }}
+          username: ${{ vars.SIMPLY_SSH_USERNAME }}
+          key: ${{ secrets.SIMPLY_SSH_KEY }}
+          port: 22
+          source: "dist"
+          target: /var/www/nembadminton.dk/projects/marketing-deploy/${{ github.sha }}
+          strip_components: 1
+
+      -   name: Switch to new version of marketing
+          uses: appleboy/ssh-action@v1.0.0
+          with:
+            host: ${{ vars.SIMPLY_SSH_HOST }}
+            username: ${{ vars.SIMPLY_SSH_USERNAME }}
+            key: ${{ secrets.SIMPLY_SSH_KEY }}
+            port: 22
+            script: |
+              ln -sfn /var/www/nembadminton.dk/projects/marketing-deploy/${{ github.sha }} /var/www/nembadminton.dk/public_html

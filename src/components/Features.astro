@@ -1,0 +1,101 @@
+<section class="features" id="features">
+	<div class="container">
+		<h2>Features</h2>
+		<p class="features-subtitle">Alle værktøjer du skal bruge</p>
+		<div class="features-grid">
+			<div class="feature-card">
+				<h3><span class="feature-icon">✓</span>Automatisk regeltjekker</h3>
+				<p>Sikre du overholder reglerne for DH-turneringen</p>
+			</div>
+			<div class="feature-card">
+				<h3><span class="feature-icon">📊</span>Data fra badmintonplayer</h3>
+				<p>Hver nat importeres nyeste data fra badmintonplayer</p>
+			</div>
+			<div class="feature-card">
+				<h3><span class="feature-icon">🚫</span>Meld afbud eller skade</h3>
+				<p>Markere afbud eller sæt en spiller som skadet</p>
+			</div>
+			<div class="feature-card">
+				<h3><span class="feature-icon">📤</span>Del din holdkamp</h3>
+				<p>Del din holdkamp med link eller download opstillingen</p>
+			</div>
+			<div class="feature-card">
+				<h3><span class="feature-icon">🏢</span>Hold på tværs af klubber</h3>
+				<p>Består dit holdturninens hold af flere klubber, kan du nemt tilføje ekstra klubber</p>
+			</div>
+			<div class="feature-card">
+				<h3><span class="feature-icon">📋</span>Multi ranglister for holdrunden</h3>
+				<p>Vælge forskellige ranglister per hold i holdrunden</p>
+			</div>
+			<div class="feature-card">
+				<h3><span class="feature-icon">⚙️</span>Variable hold</h3>
+				<p>Opret variable hold. Det giver mulighed for at oprette brugerdefinerede hold, hvor du selv vælger antallet af mixer, singler og doubler på hold</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+	
+	.features {
+		padding: 80px 0;
+		background: #f8f9fa;
+	}
+	
+	.features h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		color: #2c3e50;
+	}
+	
+	.features-subtitle {
+		text-align: center;
+		color: #7f8c8d;
+		margin-bottom: 3rem;
+	}
+	
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+	
+	.feature-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 10px;
+		box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+		transition: transform 0.3s;
+	}
+	
+	.feature-card:hover {
+		transform: translateY(-5px);
+	}
+	
+	.feature-card h3 {
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+		color: #e74c3c;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	
+	.feature-card p {
+		color: #555;
+	}
+	
+	.feature-icon {
+		background: #e74c3c;
+		color: white;
+		padding: 8px;
+		border-radius: 50%;
+		font-size: 1rem;
+	}
+</style> 

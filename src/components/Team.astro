@@ -1,0 +1,104 @@
+---
+import { Image } from 'astro:assets';
+import danielProfile from '../assets/daniel_fly_profile.jpeg';
+import jesperProfile from '../assets/jesper_kamp_profile.jpeg';
+import badmintonDanmarkLogo from '../assets/badminton_danmark_logo.jpeg';
+---
+
+<section class="team" id="team">
+	<div class="container">
+		<h2>Om os</h2>
+		<p class="team-subtitle">Alt dette har kunnet lade sig gøre takket være et fremragende samarbejde</p>
+		<div class="team-grid">
+			<div class="team-member">
+				<div class="team-photo">
+					<Image src={danielProfile} alt="Daniel Fly Nygaard" width={120} height={120} />
+				</div>
+				<h3>Daniel Fly Nygaard</h3>
+				<p>Badmintonentusiast, founder, programmør og system arkitekt med over 15 års erfaring. Har udviklet Nembadminton.dk</p>
+				<a href="#" class="linkedin">LinkedIn</a>
+			</div>
+			<div class="team-member">
+				<div class="team-photo">
+					<Image src={jesperProfile} alt="Jesper Kamp" width={120} height={120} />
+				</div>
+				<h3>Jesper Kamp</h3>
+				<p>HU formand. Har hjulpet med fortolkning og spørgsmål i forhold til DH-reglementet.</p>
+				<a href="#" class="linkedin">LinkedIn</a>
+			</div>
+			<div class="team-member">
+				<div class="team-photo">
+					<Image src={badmintonDanmarkLogo} alt="Badminton Danmark" width={120} height={120} />
+				</div>
+				<h3>Badminton Danmark</h3>
+				<p>Dataejer. Har udviklet api til dataoverførsel fra badmintonplayer.dk</p>
+				<a href="#" class="linkedin">LinkedIn</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+	
+	.team {
+		padding: 80px 0;
+		background: white;
+	}
+	
+	.team h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		color: #2c3e50;
+	}
+	
+	.team-subtitle {
+		text-align: center;
+		color: #7f8c8d;
+		margin-bottom: 3rem;
+	}
+	
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+	
+	.team-member {
+		background: #f8f9fa;
+		padding: 2rem;
+		border-radius: 10px;
+		text-align: center;
+	}
+	
+	.team-photo {
+		margin-bottom: 1.5rem;
+	}
+	
+	.team-photo img {
+		border-radius: 50%;
+		object-fit: cover;
+		border: 4px solid #e74c3c;
+		box-shadow: 0 4px 15px rgba(231, 76, 60, 0.2);
+	}
+	
+	.team-member h3 {
+		color: #2c3e50;
+		margin-bottom: 1rem;
+	}
+	
+	.team-member p {
+		color: #555;
+		margin-bottom: 1rem;
+	}
+	
+	.team-member .linkedin {
+		color: #0077b5;
+		text-decoration: none;
+	}
+</style> 

@@ -1,0 +1,92 @@
+---
+import heroImage from '../assets/teamfight-planning-landing-2.png';
+
+const tagline = "Badminton holdturnering bare nemt. Planlæg, Sammensæt, Spil!";
+const subtitle = "Optimer jeres holdturneringer med vores digitale løsninger. Gør planlægning, koordinering og gennemførelse til en leg, og lad teknologien løfte jeres klub til nye højder.";
+---
+
+<section class="hero" id="home" style={`background: linear-gradient(135deg, rgba(231, 76, 60, 0.8) 0%, rgba(192, 57, 43, 0.8) 100%), url(${heroImage.src}); background-size: cover; background-position: center; background-attachment: fixed;`}>
+	<div class="container">
+		<h1>{tagline}</h1>
+		<p>{subtitle}</p>
+		<div class="hero-buttons">
+			<a href="#" class="cta-button">Kom igang</a>
+			<a href="#" class="cta-button cta-secondary">Gå til login→</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+	
+	.hero {
+		color: white;
+		padding: 120px 0 80px;
+		text-align: center;
+	}
+	
+	.hero h1 {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		font-weight: 700;
+	}
+	
+	.hero p {
+		font-size: 1.2rem;
+		margin-bottom: 2rem;
+		opacity: 0.9;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.hero-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	
+	.cta-button {
+		display: inline-block;
+		background: #fff;
+		color: #e74c3c;
+		padding: 15px 30px;
+		text-decoration: none;
+		border-radius: 5px;
+		font-weight: 600;
+		font-size: 1.1rem;
+		transition: transform 0.3s, box-shadow 0.3s;
+	}
+	
+	.cta-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+	}
+	
+	.cta-secondary {
+		background: transparent;
+		color: white;
+		border: 2px solid white;
+	}
+	
+	.cta-secondary:hover {
+		background: white;
+		color: #e74c3c;
+	}
+	
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+		
+		.hero-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+</style> 

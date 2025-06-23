@@ -1,16 +1,47 @@
 ---
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import Vision from '../components/Vision.astro';
+import Features from '../components/Features.astro';
+import Team from '../components/Team.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
 
+const title = "NemBadminton";
 ---
 
-<html lang="en">
+<html lang="da">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{title}</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				line-height: 1.6;
+				color: #333;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<Header />
+		<main>
+			<Hero />
+			<Stats />
+			<Vision />
+			<Features />
+			<Team />
+			<FAQ />
+		</main>
+		<Footer />
 	</body>
 </html>

@@ -1,0 +1,99 @@
+<header>
+	<nav class="container">
+		<div class="logo">Nembadminton</div>
+		<ul class="nav-links">
+			<li><a href="#home">Hjem</a></li>
+			<li><a href="#features">Features</a></li>
+			<li><a href="#team">Om os</a></li>
+			<li><a href="#faq">FAQ</a></li>
+		</ul>
+		<div class="nav-buttons">
+			<a href="#" class="btn-login">Login</a>
+			<a href="#" class="btn-primary">Kom igang</a>
+		</div>
+	</nav>
+</header>
+
+<style>
+	header {
+		background: #fff;
+		box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 1000;
+	}
+	
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 0;
+	}
+	
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+	
+	.logo {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: #e74c3c;
+	}
+	
+	.nav-links {
+		display: flex;
+		list-style: none;
+		gap: 2rem;
+	}
+	
+	.nav-links a {
+		text-decoration: none;
+		color: #333;
+		font-weight: 500;
+		transition: color 0.3s;
+	}
+	
+	.nav-links a:hover {
+		color: #e74c3c;
+	}
+	
+	.nav-buttons {
+		display: flex;
+		gap: 1rem;
+	}
+	
+	.btn-login {
+		text-decoration: none;
+		color: #333;
+		padding: 8px 16px;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		transition: all 0.3s;
+	}
+	
+	.btn-login:hover {
+		background: #f8f9fa;
+	}
+	
+	.btn-primary {
+		background: #e74c3c;
+		color: white;
+		text-decoration: none;
+		padding: 8px 16px;
+		border-radius: 5px;
+		transition: background 0.3s;
+	}
+	
+	.btn-primary:hover {
+		background: #c0392b;
+	}
+	
+	@media (max-width: 768px) {
+		.nav-links {
+			display: none;
+		}
+	}
+</style> 

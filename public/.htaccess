@@ -1,0 +1,18 @@
+<ifModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # New rule to redirect the specific URL
+    RewriteCond %{HTTPS} on
+    RewriteCond %{HTTP_HOST} ^nembadminton\.dk$ [NC]
+    RewriteRule ^app/calendar-generator(.*)$ https://app.nembadminton.dk/app/calendar-generator$1 [R=301,L]
+
+    # Redirect all paths starting with /team and ending with /ical-classic
+    RewriteCond %{HTTPS} on
+    RewriteCond %{HTTP_HOST} ^nembadminton\.dk$ [NC]
+    RewriteRule ^team/([0-9]+)/ical-classic(.*)$ https://app.nembadminton.dk/team/$1/ical-classic$2 [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule (.*) /index.html [QSA,L]
+</ifModule>

@@ -11,9 +11,12 @@ test.beforeEach(async ({ page, baseURL }) => {
 test('final signup follows the story and opens in the current tab', async ({ page, context }) => {
   const action = page.getByRole('region', { name: 'Klar til at sætte klubbens hold?' });
   await expect(action).toBeVisible();
-  const order = await page.locator('main h2').allTextContents();
-  expect(order.indexOf('Lavet til badmintonens frivillige')).toBeGreaterThan(order.indexOf('Ofte stillede spørgsmål'));
+  const order = (await page.locator('main h2').allTextContents()).map(text => text.trim());
+  const faqHeading = (await page.locator('#faq').getByRole('heading', { level: 2 }).innerText()).trim();
+  expect(order.indexOf(faqHeading)).toBeGreaterThanOrEqual(0);
+  expect(order.indexOf('Lavet til badmintonens frivillige')).toBeGreaterThan(order.indexOf(faqHeading));
   expect(order.indexOf('Klar til at sætte klubbens hold?')).toBeGreaterThan(order.indexOf('Lavet til badmintonens frivillige'));
+  expect(order.indexOf('Kontakt mig')).toBeGreaterThan(order.indexOf('Klar til at sætte klubbens hold?'));
   const signup = action.getByRole('link', { name: 'Opret gratis bruger', exact: true });
   await expect(signup).toHaveAttribute('href', 'https://app.nembadminton.dk/app/sign-up');
   expect([null, '', '_self']).toContain(await signup.getAttribute('target'));

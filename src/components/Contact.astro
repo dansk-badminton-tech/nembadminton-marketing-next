@@ -9,7 +9,7 @@
         Kontakt mig
       </h2>
       <p class="mt-6 text-lg leading-8 text-gray-600">
-        Har du spørgsmål eller brug for hjælp? Skriv din email nedenfor, så kontakter jeg dig hurtigst muligt.
+        Har du spørgsmål eller brug for hjælp? Skriv din e-mailadresse nedenfor, så kontakter jeg dig hurtigst muligt.
       </p>
     </div>
     
@@ -25,11 +25,14 @@
           method="POST" 
           style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;"
         >
-          <input 
+          <label for="contact-email" class="mb-2 w-full max-w-[300px] text-sm font-medium text-gray-900">Din e-mailadresse</label>
+          <input
+            id="contact-email"
+            autocomplete="email"
             class="newsletter-form-input" 
             name="newsletter-form-input" 
             type="email" 
-            placeholder="viktor-axelsen@gmail.com" 
+            placeholder="dig@din-klub.dk"
             required 
             style="font-family: Inter, sans-serif; color: rgb(0, 0, 0); font-size: 14px; margin: 0px 0px 10px; width: 100%; max-width: 300px; min-width: 100px; background: rgb(255, 255, 255); border: 1px solid rgb(209, 213, 219); box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px; border-radius: 6px; padding: 8px 12px;"
           >
@@ -49,15 +52,15 @@
           </button>
         </form>
         
-        <div class="newsletter-success" style="display: none; align-items: center; justify-content: center; width: 100%;">
+        <div role="status" class="newsletter-success" style="display: none; align-items: center; justify-content: center; width: 100%;">
           <p class="newsletter-success-message" style="font-family: Inter, sans-serif; color: rgb(0, 0, 0); font-size: 14px;">
-            Tak! Vi vil kontakte dig!
+            Tak! Jeg kontakter dig hurtigst muligt.
           </p>
         </div>
         
-        <div class="newsletter-error" style="display: none; align-items: center; justify-content: center; width: 100%;">
+        <div role="alert" class="newsletter-error" style="display: none; align-items: center; justify-content: center; width: 100%;">
           <p class="newsletter-error-message" style="font-family: Inter, sans-serif; color: rgb(185, 28, 28); font-size: 14px;">
-            Oops! Something went wrong, please try again
+            Der skete en fejl. Prøv igen om lidt.
           </p>
         </div>
         
@@ -124,9 +127,8 @@ function submitHandler(event) {
       "Content-Type": "application/x-www-form-urlencoded",
     },
   })
-    .then((res) => [res.ok, res.json(), res])
-    .then(([ok, dataPromise, res]) => {
-      if (ok) {
+    .then((res) => {
+      if (res.ok) {
         // If response successful
         // display success
         success.style.display = "flex";
@@ -134,12 +136,8 @@ function submitHandler(event) {
       } else {
         // If response unsuccessful
         // display error message or response status
-        dataPromise.then(data => {
-          errorContainer.style.display = "flex";
-          errorMessage.innerText = data.message
-            ? data.message
-            : res.statusText;
-        });
+        errorContainer.style.display = "flex";
+        errorMessage.innerText = "Der skete en fejl. Prøv igen om lidt.";
       }
     })
     .catch(error => {
@@ -151,7 +149,7 @@ function submitHandler(event) {
       // If error caught
       // display error message if available
       errorContainer.style.display = "flex";
-      if (error.message) errorMessage.innerText = error.message;
+      errorMessage.innerText = "Der skete en fejl. Prøv igen om lidt.";
       localStorage.setItem("loops-form-timestamp", '');
     })
     .finally(() => {
@@ -172,7 +170,7 @@ function resetFormHandler(event) {
 
   success.style.display = "none";
   errorContainer.style.display = "none";
-  errorMessage.innerText = "Oops! Der skete en fejl, prøv igen";
+  errorMessage.innerText = "Der skete en fejl. Prøv igen om lidt.";
   backButton.style.display = "none";
   formInput.style.display = "flex";
   submitButton.style.display = "flex";

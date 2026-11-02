@@ -55,7 +55,7 @@ test('Danish search and sharing previews describe the same concrete purpose', as
 test('explains setting club teams with help checking rules', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Sæt klubbens hold med hjælp til regeltjek');
-  const main = page.getByRole('main');
+  const main = page.locator('#home');
   await expect(main.getByText(/Brug ranglistedata fra badmintonplayer.dk/)).toBeVisible();
   await expect(main.getByText(/Få hjælp til at kontrollere opstillingerne, og del dem med spillerne/)).toBeVisible();
   await expect(main.getByText('Gratis og drevet på frivillig basis.')).toBeVisible();

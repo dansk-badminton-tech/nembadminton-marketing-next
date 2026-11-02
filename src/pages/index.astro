@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Workflow from '../components/Workflow.astro';
 import Features from '../components/Features.astro';
 import Team from '../components/Team.astro';
 import Signup from '../components/Signup.astro';
@@ -12,7 +13,8 @@ import '../styles/global.css';
 const title = "Nembadminton | Sæt klubbens hold med hjælp til regeltjek";
 const description = "Brug ranglistedata fra badmintonplayer.dk til at sammensætte holdene. Få hjælp til at kontrollere opstillingerne, og del dem med spillerne. Gratis og drevet på frivillig basis.";
 const siteUrl = "https://nembadminton.dk";
-const imageUrl = `${siteUrl}/teamfight-planning-landing-2.png`;
+const imageUrl = `${siteUrl}/holdrunde-workflow.png`;
+const imageAlt = "Illustration af forløbet fra afbud til officiel opstilling i Nembadminton, ikke et skærmbillede af appen.";
 ---
 
 <html lang="da">
@@ -37,6 +39,7 @@ const imageUrl = `${siteUrl}/teamfight-planning-landing-2.png`;
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={imageUrl} />
+		<meta property="og:image:alt" content={imageAlt} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:site_name" content="Nembadminton" />
@@ -48,7 +51,7 @@ const imageUrl = `${siteUrl}/teamfight-planning-landing-2.png`;
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={imageUrl} />
-    <meta property="twitter:image:alt" content="Holdopstilling i Nembadminton" />
+    <meta property="twitter:image:alt" content={imageAlt} />
 
 		<!-- LinkedIn -->
 		<meta property="linkedin:owner" content="" />
@@ -62,6 +65,7 @@ const imageUrl = `${siteUrl}/teamfight-planning-landing-2.png`;
 		<Header />
 		<main>
 			<Hero />
+			<Workflow />
 			<Features />
 			<FAQ />
 			<Team />

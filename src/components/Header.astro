@@ -1,6 +1,7 @@
 ---
 const sections = [
   { href: '#home', label: 'Hjem' },
+  { href: '#workflow', label: 'Sådan virker det' },
   { href: '#features', label: 'Funktioner' },
   { href: '#team', label: 'Om os' },
   { href: '#faq', label: 'Spørgsmål og svar' },
@@ -9,10 +10,10 @@ const sections = [
 ---
 
 <header class="bg-white fixed w-full top-0 z-50 shadow-sm">
-  <nav class="mx-auto flex max-w-7xl items-center justify-between gap-6 p-6 lg:px-8" aria-label="Hovednavigation">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between gap-3 p-6 lg:px-6 xl:gap-6 xl:px-8" aria-label="Hovednavigation">
     <a href="#home" class="-m-1.5 p-1.5 flex shrink-0 items-center">
       <img class="h-8 w-auto" src="/logo.svg" alt="" />
-      <span class="ml-3 text-xl font-bold text-gray-900">Nembadminton</span>
+      <span class="ml-3 text-lg font-bold text-gray-900 xl:text-xl">Nembadminton</span>
     </a>
     <button id="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
       <span id="mobile-menu-label" class="sr-only">Åbn menu</span>
@@ -20,12 +21,12 @@ const sections = [
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
       </svg>
     </button>
-    <div class="hidden lg:flex lg:gap-x-6">
+    <div class="hidden lg:flex lg:gap-x-3 xl:gap-x-6">
       {sections.map(({ href, label }) => (
         <a href={href} class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">{label}</a>
       ))}
     </div>
-    <div class="hidden lg:flex lg:gap-x-4 shrink-0">
+    <div class="hidden lg:flex lg:gap-x-2 xl:gap-x-4 shrink-0">
       <a href="https://app.nembadminton.dk/app/sign-up" class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition-colors">Opret gratis bruger</a>
       <a href="https://app.nembadminton.dk/app/home-redirect" class="rounded-md border border-gray-300 bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 transition-colors">Log ind</a>
     </div>

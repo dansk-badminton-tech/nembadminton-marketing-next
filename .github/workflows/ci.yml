@@ -1,31 +1,77 @@
-name: Deploy marketing site to simply.com
+name: Check and deploy marketing site
 
 on:
+  pull_request:
   push:
     branches:
       - main
 
 jobs:
+  homepage-checks:
+    runs-on: ubuntu-latest
+    outputs:
+      routing-sha256: ${{ steps.routing.outputs.sha256 }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+      - name: Build and test production homepage
+        run: npm run test:e2e
+      - name: Keep browser diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-test-results
+          path: test-results/
+          retention-days: 7
+      - name: Verify built Apache routing config and hidden-file allowlist
+        id: routing
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s dist/.htaccess
+          cmp public/.htaccess dist/.htaccess
+          unexpected_hidden_paths="$(find dist -name '.*' ! -path 'dist/.htaccess' -print)"
+          if [ -n "$unexpected_hidden_paths" ]; then
+            printf 'Unexpected hidden deployment paths:\n%s\n' "$unexpected_hidden_paths" >&2
+            exit 1
+          fi
+          printf 'sha256=%s\n' "$(sha256sum dist/.htaccess | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
+      - name: Preserve tested build for deployment
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: marketing-site
+          path: dist/
+          if-no-files-found: error
+          include-hidden-files: true
+
   deploy-to-simply:
-    # env:
-    #   PUBLIC_DOMAIN: ${{ vars.PUBLIC_DOMAIN }}
-    #   PUBLIC_API_DOMAIN: ${{ vars.PUBLIC_API_DOMAIN }}
+    needs: homepage-checks
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
     steps:
-      -   name: Checkout repository
-          uses: actions/checkout@v4
-
-      -   name: Setup NodeJS
-          uses: actions/setup-node@v4
+      -   name: Download tested production build
+          uses: actions/download-artifact@v4
           with:
-            node-version: '22.x'
-            cache: 'npm'
+            name: marketing-site
+            path: dist/
 
-      -   name: Frontend build
-          run: |
-            npm install --frozen-lockfile
-            npm run build
+      - name: Verify downloaded Apache routing config before deployment
+        shell: bash
+        env:
+          ROUTING_SHA256: ${{ needs.homepage-checks.outputs.routing-sha256 }}
+        run: |
+          set -euo pipefail
+          test -s dist/.htaccess
+          test "$(sha256sum dist/.htaccess | cut -d ' ' -f 1)" = "$ROUTING_SHA256"
 
       - name: Upload new frontend
         uses: appleboy/scp-action@v0.1.4

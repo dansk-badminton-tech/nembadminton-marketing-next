@@ -1,12 +1,7 @@
 import { expect, test } from '@playwright/test';
+import { openHomepage } from './helpers/homepage';
 
-test.beforeEach(async ({ page, baseURL }) => {
-  await page.route('**/*', route =>
-    new URL(route.request().url()).origin === new URL(baseURL!).origin
-      ? route.continue() : route.abort(),
-  );
-  await page.goto('/');
-});
+test.beforeEach(openHomepage);
 
 test('final signup follows the story and opens in the current tab', async ({ page, context }) => {
   const action = page.getByRole('region', { name: 'Klar til at sætte klubbens hold?' });

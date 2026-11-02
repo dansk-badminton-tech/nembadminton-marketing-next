@@ -1,14 +1,7 @@
 import { expect, test } from '@playwright/test';
+import { openHomepage } from './helpers/homepage';
 
-test.beforeEach(async ({ page, baseURL }) => {
-  // Keep analytics and all other third parties out of this public-page seam.
-  await page.route('**/*', route =>
-    new URL(route.request().url()).origin === new URL(baseURL!).origin
-      ? route.continue()
-      : route.abort(),
-  );
-  await page.goto('/');
-});
+test.beforeEach(openHomepage);
 
 test('mobile menu supports pointer, keyboard, Escape and focus restoration', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile', 'Mobile disclosure only');

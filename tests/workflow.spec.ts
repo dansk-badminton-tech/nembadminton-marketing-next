@@ -1,13 +1,7 @@
 import { expect, test } from '@playwright/test';
+import { openHomepage } from './helpers/homepage';
 
-test.beforeEach(async ({ page, baseURL }) => {
-  await page.route('**/*', route =>
-    new URL(route.request().url()).origin === new URL(baseURL!).origin
-      ? route.continue()
-      : route.abort(),
-  );
-  await page.goto('/');
-});
+test.beforeEach(openHomepage);
 
 test('explains the holdrunde journey and an actionable, honest demonstration', async ({ page }, testInfo) => {
   const workflow = page.getByRole('region', { name: 'Fra afbud til officiel opstilling' });

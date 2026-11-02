@@ -1,13 +1,7 @@
 import { expect, test } from '@playwright/test';
+import { openHomepage } from './helpers/homepage';
 
-test.beforeEach(async ({ page, baseURL }) => {
-  await page.route('**/*', route =>
-    new URL(route.request().url()).origin === new URL(baseURL!).origin
-      ? route.continue()
-      : route.abort(),
-  );
-  await page.goto('/');
-});
+test.beforeEach(openHomepage);
 
 test('Danish FAQ controls expose their answers and toggle by keyboard and pointer', async ({ page }, testInfo) => {
   const faq = page.locator('#faq');

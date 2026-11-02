@@ -60,7 +60,8 @@ concurrent worktrees, for example:
 PLAYWRIGHT_PORT=4323 npm run test:e2e
 ```
 
-The suite blocks third-party requests, including analytics. App navigation is
+The shared homepage setup blocks third-party requests across the browser context,
+including analytics and new-tab requests. App navigation is
 verified using locally fulfilled destinations; tests do not contact the live app,
 create accounts, or submit the contact form. Failure traces are in `test-results/`.
 
@@ -68,6 +69,11 @@ Pull requests run `homepage-checks` without production secrets or deployment.
 Pushes to `main` must pass those same checks before the tested `dist/` artifact
 can be deployed to the existing simply.com destination. Running tests locally
 does not deploy anything.
+
+Before preserving `dist/`, CI checks that its Apache routing config matches
+`public/.htaccess` and rejects any other hidden paths. The scoped artifact includes
+that hidden config; deployment verifies its checksum again after downloading,
+before uploading files or switching the production symlink.
 
 Automated checks do not establish product-claim accuracy or certify accessibility.
 Before shipping, review the page at both sizes, tab through the header and menu,

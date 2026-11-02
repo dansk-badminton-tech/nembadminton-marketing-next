@@ -1,13 +1,7 @@
 import { expect, test } from '@playwright/test';
+import { openHomepage } from './helpers/homepage';
 
-test.beforeEach(async ({ page, baseURL }) => {
-  await page.route('**/*', route =>
-    new URL(route.request().url()).origin === new URL(baseURL!).origin
-      ? route.continue()
-      : route.abort(),
-  );
-  await page.goto('/');
-});
+test.beforeEach(openHomepage);
 
 test('benefits explain badminton-specific assistance without unsupported spreadsheet comparisons', async ({ page }) => {
   const benefits = page.getByRole('region', { name: 'Hjælp til arbejdet med klubbens hold' });
